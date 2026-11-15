@@ -2,12 +2,12 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // 1. Serve your wrapper page (index.html) when visiting the root "/" without ?canva=1
+    // 1. Serve index.html only when visiting "/" WITHOUT ?canva=1
     if (url.pathname === "/" && !url.searchParams.has("canva")) {
       return env.ASSETS.fetch(request);
     }
 
-    // 2. Proxy the Canva website and all its /_assets/* files directly
+    // 2. Proxy Canva website & assets
     const targetUrl = new URL("https://canva.site" + url.pathname + url.search);
     targetUrl.searchParams.delete("canva");
 
