@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delta Systems</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Background Layer: Stretched & Blurred */
+    .bg-blur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      filter: blur(40px) brightness(0.65);
+      transform: scale(1.2);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Foreground Layer: Sharp 16:9 */
+    .fg-content {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      width: min(100vw, calc(100vh * (16 / 9)));
+      height: min(100vh, calc(100vw * (9 / 16)));
+      border: none;
+      z-index: 2;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Blurred background Canva layer -->
+  <iframe 
+    class="bg-blur" 
+    src="https://www.canva.com/design/DAHa_FGcrCg/6ZMXc4wj5GGvsBfLSTR7EQ/view?embed" 
+    tabindex="-1" 
+    aria-hidden="true">
+  </iframe>
+
+  <!-- Main sharp 16:9 Canva layer -->
+  <iframe 
+    class="fg-content" 
+    src="https://www.canva.com/design/DAHa_FGcrCg/6ZMXc4wj5GGvsBfLSTR7EQ/view?embed" 
+    allowfullscreen="allowfullscreen" 
+    allow="fullscreen">
+  </iframe>
+
+</body>
+</html>
