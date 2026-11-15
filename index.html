@@ -19,16 +19,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
-    /* Hide outer page scrollbars while keeping scroll functional */
-    html, body {
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE/Edge */
-    }
     html::-webkit-scrollbar,
     body::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
+      display: none;
     }
 
     /* Background Layer: Heavy Ambient Blur */
@@ -60,7 +57,7 @@
       z-index: 2;
     }
 
-    /* Foreground 16:9 Container: Clips the inner scrollbar without blocking scrolling */
+    /* Foreground 16:9 Container: Clips inner scrollbar without blocking scrolling */
     .fg-wrapper {
       position: relative;
       aspect-ratio: 16 / 9;
@@ -71,7 +68,7 @@
       box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
     }
 
-    /* Foreground Canva Website: Slightly wider (+20px) to push its native scrollbar out of sight */
+    /* Foreground Canva Website: Slightly wider (+20px) to push scrollbar out of sight */
     .fg-content {
       width: calc(100% + 20px);
       height: 100%;
@@ -82,10 +79,10 @@
 </head>
 <body>
 
-    <!-- Heavy blurred ambient background -->
+  <!-- Heavy blurred ambient background -->
   <iframe 
     class="bg-blur" 
-    src="/?canva=1" 
+    src="https://canva.com" 
     tabindex="-1" 
     aria-hidden="true">
   </iframe>
@@ -97,8 +94,11 @@
   <div class="fg-wrapper">
     <iframe 
       class="fg-content" 
-      src="/?canva=1" 
+      src="https://canva.com" 
       allowfullscreen="allowfullscreen" 
       allow="fullscreen">
     </iframe>
   </div>
+
+</body>
+</html>
