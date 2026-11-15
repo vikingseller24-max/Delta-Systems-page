@@ -1,7 +1,9 @@
 {
   "name": "main-page",
+  "main": "worker.js",
   "compatibility_date": "2026-11-15",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS"
   }
 }
